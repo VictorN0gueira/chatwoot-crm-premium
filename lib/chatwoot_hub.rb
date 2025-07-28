@@ -24,19 +24,16 @@ class ChatwootHub
     InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN')&.value || 'enterprise'
   end
 
+  # CORRIGIDO: Este método foi combinado e corrigido.
   def self.pricing_plan_quantity
     return 0 unless ChatwootApp.enterprise?
 
- #   InstallationConfig.find_by(name: 'INSTALLATION_PRICING_PLAN_QUANTITY')&.value || 10000
-# end
-
-  def self.pricing_plan_quantity
-  if pricing_plan == 'premium'
-    1000
-  else
-    0
+    if pricing_plan == 'premium'
+      1000
+    else
+      0
+    end
   end
-end
 
   def self.support_config
     {
